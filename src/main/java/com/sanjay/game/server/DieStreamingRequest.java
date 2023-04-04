@@ -57,6 +57,7 @@ public class DieStreamingRequest implements StreamObserver<Die> {
 
     private Player getNewPlayerPosition(Player player, Die die) {
         int position = player.getPosition() + die.getValue();
+        position = SnakesAndLadderMap.getPosition(position);
         if (position <= 100) {
             player = player.toBuilder()
                     .setPosition(position)
